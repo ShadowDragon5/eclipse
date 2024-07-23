@@ -10,6 +10,11 @@ normal = Vector2(2.08165e-12, 1)
 
 [node name="World" type="Node2D"]
 
+[node name="player" parent="." instance=ExtResource("1_s6c5f")]
+position = Vector2(308, 216)
+max_speed = 350
+accel = 1250
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(367, 646)
 
@@ -23,6 +28,3 @@ position = Vector2(206, 41)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(51, -42)
 shape = SubResource("WorldBoundaryShape2D_yit4r")
-
-[node name="player" parent="." instance=ExtResource("1_s6c5f")]
-position = Vector2(308, 216)
