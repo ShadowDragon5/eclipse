@@ -33,4 +33,7 @@ position = Vector2(51, -42)
 shape = SubResource("WorldBoundaryShape2D_yit4r")
 
 [node name="dead_tree" parent="." instance=ExtResource("2_p4q78")]
-position = Vector2(75, 148)
+position = Vector2(169, 221)
+
+[node name="dead_tree2" parent="." instance=ExtResource("2_p4q78")]
+position = Vector2(294, -34)

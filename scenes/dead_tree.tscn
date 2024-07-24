@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_85smn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3nmv"]
-radius = 28.0179
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djadk"]
 radius = 71.1126
@@ -22,7 +22,8 @@ texture = ExtResource("2_rwnbi")
 shape = SubResource("CircleShape2D_p3nmv")
 
 [node name="branch_fall_timer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 5.0
+one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -32)
