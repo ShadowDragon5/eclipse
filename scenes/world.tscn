@@ -15,6 +15,9 @@ normal = Vector2(2.08165e-12, 1)
 position = Vector2(308, 216)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(367, 646)

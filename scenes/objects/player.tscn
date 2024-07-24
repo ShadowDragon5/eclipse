@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpv50atu3erv7" path="res://assets/sprites/player.png" id="1_nl0nw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exg2e"]
-size = Vector2(23, 32)
+size = Vector2(32, 8)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -24,15 +24,15 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": true,
 "player": "",
 "slice": "",
-"source": "res://assets/sprites/player.aseprite"
+"source": "res://assets/aseprite/player.aseprite"
 }
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": true,
 "slice_section": false
 }
-metadata/_aseprite_wizard_source_file_hash_ = "6cd5968da77f367730a7e2b19aa6c62f"
+metadata/_aseprite_wizard_source_file_hash_ = "6a01c2821295b4951c6473b29a283d2a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -16)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_exg2e")
