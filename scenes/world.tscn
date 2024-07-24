@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dweclt0lai76f"]
+[gd_scene load_steps=5 format=3 uid="uid://dweclt0lai76f"]
 
 [ext_resource type="PackedScene" uid="uid://ddk81een0w54a" path="res://scenes/player.tscn" id="1_s6c5f"]
+[ext_resource type="PackedScene" uid="uid://b1wregi0mcmvb" path="res://scenes/dead_tree.tscn" id="2_p4q78"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hk4ig"]
 distance = -1.0
@@ -12,8 +13,11 @@ normal = Vector2(2.08165e-12, 1)
 
 [node name="player" parent="." instance=ExtResource("1_s6c5f")]
 position = Vector2(308, 216)
-max_speed = 350
-accel = 1250
+max_speed = 300
+accel = 750
+friction = 1000
+
+[node name="Camera2D" type="Camera2D" parent="player"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(367, 646)
@@ -28,3 +32,6 @@ position = Vector2(206, 41)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(51, -42)
 shape = SubResource("WorldBoundaryShape2D_yit4r")
+
+[node name="dead_tree" parent="." instance=ExtResource("2_p4q78")]
+position = Vector2(75, 148)

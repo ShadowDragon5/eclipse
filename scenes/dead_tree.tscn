@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1wregi0mcmvb"]
+
+[ext_resource type="Script" path="res://scripts/dead_tree.gd" id="1_ayd7e"]
+[ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="2_rwnbi"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_85smn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3nmv"]
+radius = 28.0179
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djadk"]
+radius = 71.1126
+
+[node name="dead_tree" type="Node2D"]
+script = ExtResource("1_ayd7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+scale = Vector2(0.46875, 1)
+texture = ExtResource("2_rwnbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p3nmv")
+
+[node name="branch_fall_timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_85smn")]
+action_name = "chop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_djadk")
