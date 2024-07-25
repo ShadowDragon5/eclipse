@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_85smn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3nmv"]
-radius = 30.0
+radius = 14.0357
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djadk"]
-radius = 71.1126
+radius = 30.0666
 
 [node name="dead_tree" type="StaticBody2D"]
 script = ExtResource("1_ayd7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
-scale = Vector2(0.46875, 1)
+position = Vector2(0, -32)
+scale = Vector2(0.234375, 0.5)
 texture = ExtResource("2_rwnbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
