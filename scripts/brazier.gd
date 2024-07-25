@@ -4,8 +4,7 @@ extends StaticBody2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var burn_time: Timer = $Timer
 
-@export var fuel_left = 3
-
+var fuel_time = 30
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +17,7 @@ func _process(delta):
 	#print(delta)
 
 func _add_fuel():
-	burn_time.set_wait_time(burn_time.get_wait_time()+30)
+	burn_time.start(burn_time.get_wait_time()+fuel_time)
 
 
 func _on_timer_timeout():
