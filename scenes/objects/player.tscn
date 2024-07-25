@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_h3a73"]
 [ext_resource type="Texture2D" uid="uid://cpv50atu3erv7" path="res://assets/sprites/player.png" id="1_nl0nw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_exg2e"]
-size = Vector2(32, 8)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77lb4"]
+radius = 4.0
+height = 32.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -35,4 +36,13 @@ metadata/_aseprite_wizard_source_file_hash_ = "6a01c2821295b4951c6473b29a283d2a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_exg2e")
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_77lb4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_smoothed = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
