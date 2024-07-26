@@ -7,7 +7,8 @@ extends TileMap
 func _ready():
 	for i in range(-100,100):
 		for j in range (-100,100):
-			set_cell(0,Vector2i(i,j),0,Vector2i(randi_range(0,15),0),0)
+			if get_cell_source_id(0,Vector2i(i,j),false):
+				set_cell(0,Vector2i(i,j),0,Vector2i(randi_range(0,15),0),0)
 
 
 
