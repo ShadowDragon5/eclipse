@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d10dqiqg17m5t"]
+[gd_scene load_steps=6 format=3 uid="uid://c4cbpf4pxnwar"]
 
 [ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="1_3r2qj"]
+[ext_resource type="Script" path="res://scripts/branch_collectable.gd" id="1_3tdme"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_2p1vx"]
+[ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_vvuak"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yj6bf"]
+radius = 17.0
+height = 34.0
 
 [node name="branch_collectable" type="StaticBody2D"]
+script = ExtResource("1_3tdme")
+item = ExtResource("2_vvuak")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_3r2qj")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_2p1vx")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yj6bf")

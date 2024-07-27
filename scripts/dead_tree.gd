@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
+
+@export var item: InvItem
 @export var max_branches = 6
 var branches_dropped = 0
 

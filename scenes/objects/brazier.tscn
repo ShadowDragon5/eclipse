@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctgdttjc0ga8d"]
+[gd_scene load_steps=6 format=3 uid="uid://c8sw76rqiyo5j"]
 
 [ext_resource type="Script" path="res://scripts/brazier.gd" id="1_6hvt1"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_3retb"]

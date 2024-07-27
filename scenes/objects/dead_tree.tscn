@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1wregi0mcmvb"]
+[gd_scene load_steps=7 format=3 uid="uid://sekpjy3gd8mo"]
 
 [ext_resource type="Script" path="res://scripts/dead_tree.gd" id="1_ayd7e"]
+[ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_myt55"]
 [ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="2_rwnbi"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_85smn"]
 
@@ -12,6 +13,7 @@ radius = 30.0666
 
 [node name="dead_tree" type="StaticBody2D"]
 script = ExtResource("1_ayd7e")
+item = ExtResource("2_myt55")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)

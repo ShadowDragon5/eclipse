@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var accel = 1500
 @export var friction = 600
 
+@export var inv: Inv
+
 var input = Vector2.ZERO
 
 func _physics_process(delta):
@@ -28,4 +30,5 @@ func player_movement(delta):
 	
 	move_and_slide()
 
-
+func collect(item):
+	inv.insert(item)
