@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctgdttjc0ga8d"]
+
+[ext_resource type="Script" path="res://scripts/brazier.gd" id="1_6hvt1"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_3retb"]
+[ext_resource type="Texture2D" uid="uid://cmilbvg61dnfy" path="res://assets/sprites/brazier.png" id="2_6vhlp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8ort"]
+radius = 24.0
+height = 76.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtl83"]
+radius = 64.0
+
+[node name="Brazier" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_6hvt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.08165e-12, -24)
+texture = ExtResource("2_6vhlp")
+offset = Vector2(2.08165e-12, -32)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/aseprite/brazier.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": false
+}
+metadata/_aseprite_wizard_source_file_hash_ = "99c19f38ed497a0985aabd088dd22b5a"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.10543e-15, -24)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_f8ort")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 300.0
+one_shot = true
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_3retb")]
+position = Vector2(0, -24)
+action_name = "add fuel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CircleShape2D_gtl83")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

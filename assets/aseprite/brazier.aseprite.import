@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ky2x48f8ujtq"
+path="res://.godot/imported/brazier.aseprite-bd96af5979fa8b97921027ea7dc50e5a.res"
+
+[deps]
+
+source_file="res://assets/aseprite/brazier.aseprite"
+dest_files=["res://.godot/imported/brazier.aseprite-bd96af5979fa8b97921027ea7dc50e5a.res"]
+
+[params]
+

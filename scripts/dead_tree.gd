@@ -4,7 +4,7 @@ extends Node2D
 @export var max_branches = 6
 var branches_dropped = 0
 
-var branch = preload("res://scenes/branch_collectable.tscn")
+var branch = preload("res://scenes/objects/branch_collectable.tscn")
 
 
 func _ready():

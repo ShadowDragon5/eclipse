@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://d10dqiqg17m5t"]
 
-[ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="1_tw3dj"]
+[ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="1_3r2qj"]
 
 [node name="branch_collectable" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_tw3dj")
+texture = ExtResource("1_3r2qj")

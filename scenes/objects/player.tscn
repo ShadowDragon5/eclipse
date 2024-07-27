@@ -8,13 +8,15 @@ radius = 4.0
 height = 32.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_h3a73")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -16)
+position = Vector2(2.08165e-12, -8)
 texture = ExtResource("1_nl0nw")
+offset = Vector2(2.08165e-12, -8)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,
