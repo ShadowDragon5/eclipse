@@ -32,3 +32,9 @@ func player_movement(delta):
 
 func collect(item):
 	inv.insert(item)
+
+func has_item(item):
+	return inv.has_item(item)
+
+func remove_item(item):
+	inv.remove_item(item)

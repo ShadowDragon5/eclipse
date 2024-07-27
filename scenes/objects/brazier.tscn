@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8sw76rqiyo5j"]
+[gd_scene load_steps=7 format=3 uid="uid://c8sw76rqiyo5j"]
 
 [ext_resource type="Script" path="res://scripts/brazier.gd" id="1_6hvt1"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_3retb"]
 [ext_resource type="Texture2D" uid="uid://cmilbvg61dnfy" path="res://assets/sprites/brazier.png" id="2_6vhlp"]
+[ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_512o7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8ort"]
 radius = 24.0
@@ -14,6 +15,7 @@ radius = 64.0
 [node name="Brazier" type="StaticBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_6hvt1")
+accaptable_fuel = ExtResource("2_512o7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

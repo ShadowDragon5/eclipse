@@ -16,3 +16,15 @@ func insert(item:InvItem):
 			emptyslots[0].item = item
 			emptyslots[0].amount = 1
 	update.emit()
+
+func has_item(item: InvItem):
+	var itemslots = slots.filter(func(slot):return slot.item == item)
+	return !itemslots.is_empty()
+
+func remove_item(item: InvItem):
+	var itemslots = slots.filter(func(slot):return slot.item == item)
+	if !itemslots.is_empty():
+		itemslots[0].amount -= 1
+		if itemslots[0].amount == 0:
+			itemslots[0].item = null
+	update.emit()
