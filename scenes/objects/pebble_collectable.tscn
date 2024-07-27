@@ -1,13 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://tdawhwedsanv"]
+[gd_scene load_steps=6 format=3 uid="uid://tdawhwedsanv"]
 
 [ext_resource type="Texture2D" uid="uid://04udyqemrcsj" path="res://assets/sprites/pebbles.png" id="1_5pdhb"]
 [ext_resource type="Script" path="res://scripts/pebble_collectable.gd" id="1_yaf5h"]
 [ext_resource type="Resource" uid="uid://dawgtdh0hjqea" path="res://inventory/items/rock.tres" id="2_qjvop"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_76uq1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_by4vw"]
-atlas = ExtResource("1_5pdhb")
-region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3l6"]
 radius = 7.0
@@ -19,27 +15,8 @@ script = ExtResource("1_yaf5h")
 item = ExtResource("2_qjvop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -4)
-texture = SubResource("AtlasTexture_by4vw")
-metadata/_aseprite_wizard_config_ = {
-"i_mode": 1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://assets/sprites",
-"o_name": "",
-"only_visible": false,
-"player": "",
-"slice": "pebble2",
-"source": "res://assets/aseprite/pebbles.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": false,
-"output_section": true,
-"slice_section": true
-}
-metadata/_aseprite_wizard_source_file_hash_ = "295e6354c7e79a99551a2ddfddbfa685"
+texture = ExtResource("1_5pdhb")
+hframes = 6
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_76uq1")]
 action_name = "pick up"

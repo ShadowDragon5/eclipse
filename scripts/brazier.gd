@@ -17,8 +17,7 @@ func _process(delta):
 	#print(delta)
 
 func _add_fuel():
-	burn_time.start(burn_time.get_wait_time()+fuel_time)
-
+	burn_time.start(burn_time.get_time_left() + fuel_time)
 
 func _on_timer_timeout():
 	print ("Game Over")

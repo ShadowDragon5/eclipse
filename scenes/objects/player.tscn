@@ -49,6 +49,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Inv_ui" parent="." instance=ExtResource("3_qegtv")]
+visible = false
 offset_left = -42.0
 offset_top = -102.0
 offset_right = 42.0

@@ -17,7 +17,7 @@ script = ExtResource("1_6hvt1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2.08165e-12, -24)
+position = Vector2(2.08165e-12, 0)
 texture = ExtResource("2_6vhlp")
 offset = Vector2(2.08165e-12, -32)
 metadata/_aseprite_wizard_config_ = {
@@ -40,22 +40,22 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "99c19f38ed497a0985aabd088dd22b5a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.10543e-15, -24)
+position = Vector2(7.10543e-15, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_f8ort")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 300.0
+wait_time = 150.0
 one_shot = true
+autostart = true
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_3retb")]
 position = Vector2(0, -24)
 action_name = "add fuel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-visible = false
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(2.08165e-12, 24)
 shape = SubResource("CircleShape2D_gtl83")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
