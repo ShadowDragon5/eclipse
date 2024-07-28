@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/dead_tree.gd" id="1_ayd7e"]
 [ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_myt55"]
-[ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="2_rwnbi"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_85smn"]
+[ext_resource type="Texture2D" uid="uid://q8g30e3c7bfg" path="res://assets/sprites/dead_tree.png" id="3_er5ew"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p3nmv"]
-radius = 14.0357
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8msq7"]
+radius = 4.0
+height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_djadk"]
 radius = 30.0666
@@ -16,12 +17,31 @@ script = ExtResource("1_ayd7e")
 item = ExtResource("2_myt55")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
-scale = Vector2(0.234375, 0.5)
-texture = ExtResource("2_rwnbi")
+texture_filter = 1
+position = Vector2(2.08165e-12, -4)
+texture = ExtResource("3_er5ew")
+offset = Vector2(2.08165e-12, -28)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/aseprite/dead_tree.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f065380bd1bdad2169279ed1a48df8c2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_p3nmv")
+position = Vector2(0, -4)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_8msq7")
 
 [node name="branch_fall_timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -31,6 +51,7 @@ one_shot = true
 position = Vector2(0, -32)
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_85smn")]
+position = Vector2(0, -4)
 action_name = "chop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]

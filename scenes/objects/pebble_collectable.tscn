@@ -5,54 +5,79 @@
 [ext_resource type="Resource" uid="uid://dawgtdh0hjqea" path="res://inventory/items/rock.tres" id="2_qjvop"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_76uq1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_stle6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_787g3"]
 atlas = ExtResource("1_5pdhb")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f6xfi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti0gv"]
 atlas = ExtResource("1_5pdhb")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5w4t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xscvt"]
 atlas = ExtResource("1_5pdhb")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k54f8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hu42"]
 atlas = ExtResource("1_5pdhb")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w77vi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xmh7"]
 atlas = ExtResource("1_5pdhb")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjm1q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoigj"]
 atlas = ExtResource("1_5pdhb")
 region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_x87jw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_h84v3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_stle6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f6xfi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o5w4t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k54f8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w77vi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xjm1q")
+"texture": SubResource("AtlasTexture_787g3")
 }],
 "loop": true,
-"name": &"pebble",
-"speed": 0.0
+"name": &"pebble0",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti0gv")
+}],
+"loop": true,
+"name": &"pebble1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xscvt")
+}],
+"loop": true,
+"name": &"pebble2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hu42")
+}],
+"loop": true,
+"name": &"pebble3",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xmh7")
+}],
+"loop": true,
+"name": &"pebble4",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoigj")
+}],
+"loop": true,
+"name": &"pebble5",
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3l6"]
@@ -65,17 +90,24 @@ script = ExtResource("1_yaf5h")
 item = ExtResource("2_qjvop")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_x87jw")
-animation = &"pebble"
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h84v3")
+animation = &"pebble0"
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",
-"o_folder": "",
+"o_folder": "res://assets/sprites",
 "o_name": "",
 "only_visible": false,
 "slice": "",
 "source": "res://assets/aseprite/pebbles.aseprite"
 }
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"slice_section": false
+}
+metadata/_aseprite_wizard_source_file_hash_ = "cd51a19b9124db469ec0d694322364d1"
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_76uq1")]
 action_name = "pick up"
