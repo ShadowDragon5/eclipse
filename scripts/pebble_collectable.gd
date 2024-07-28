@@ -7,7 +7,7 @@ extends Node2D
 
 
 func _ready():
-	$AnimatedSprite2D.set_frame(randi_range(0,6))
+	$AnimatedSprite2D.animation = "pebble" + str(randi_range(0,5))
 	interaction_area.interact = Callable(self, "_collect")
 
 func _collect():

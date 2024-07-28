@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4cbpf4pxnwar"]
 
-[ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="1_3r2qj"]
 [ext_resource type="Script" path="res://scripts/branch_collectable.gd" id="1_3tdme"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_2p1vx"]
 [ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_vvuak"]
+[ext_resource type="Texture2D" uid="uid://caisxc734jhpf" path="res://assets/sprites/sticks.png" id="3_f12bi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yj6bf"]
 radius = 17.0
@@ -14,8 +14,26 @@ script = ExtResource("1_3tdme")
 item = ExtResource("2_vvuak")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_3r2qj")
+texture_filter = 1
+position = Vector2(2.08165e-12, -4)
+texture = ExtResource("3_f12bi")
+offset = Vector2(2.08165e-12, -4)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/aseprite/sticks.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f0cc65b789e898642238dd6f81a505b8"
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_2p1vx")]
 action_name = "pick up"

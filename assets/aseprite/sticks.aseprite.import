@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cx47kj51klptm"
+path="res://.godot/imported/sticks.aseprite-a52b79f71e8b17f74bf86f19b239b294.res"
+
+[deps]
+
+source_file="res://assets/aseprite/sticks.aseprite"
+dest_files=["res://.godot/imported/sticks.aseprite-a52b79f71e8b17f74bf86f19b239b294.res"]
+
+[params]
+

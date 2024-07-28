@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dawgtdh0hjqea"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=4 format=3 uid="uid://dawgtdh0hjqea"]
 
 [ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_0trkx"]
 [ext_resource type="Texture2D" uid="uid://04udyqemrcsj" path="res://assets/sprites/pebbles.png" id="2_s0v8e"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_787g3"]
+atlas = ExtResource("2_s0v8e")
+region = Rect2(0, 0, 16, 16)
+
 [resource]
 script = ExtResource("1_0trkx")
 name = "rock"
-texture = ExtResource("2_s0v8e")
+texture = SubResource("AtlasTexture_787g3")

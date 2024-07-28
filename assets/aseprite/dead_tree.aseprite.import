@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cgv87k6h8dv23"
+path="res://.godot/imported/dead_tree.aseprite-6ddafca69c2dbe90bffe50f130a5a7b8.res"
+
+[deps]
+
+source_file="res://assets/aseprite/dead_tree.aseprite"
+dest_files=["res://.godot/imported/dead_tree.aseprite-6ddafca69c2dbe90bffe50f130a5a7b8.res"]
+
+[params]
+
