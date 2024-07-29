@@ -36,7 +36,7 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f065380bd1bdad2169279ed1a48df8c2"
+metadata/_aseprite_wizard_source_file_hash_ = "d83577d5e8e767b590ba26b91b21cf2b"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
