@@ -1,15 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8sw76rqiyo5j"]
+[gd_scene load_steps=11 format=3 uid="uid://c8sw76rqiyo5j"]
 
 [ext_resource type="Script" path="res://scripts/brazier.gd" id="1_6hvt1"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_3retb"]
 [ext_resource type="Texture2D" uid="uid://cmilbvg61dnfy" path="res://assets/sprites/brazier.png" id="2_6vhlp"]
 [ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_512o7"]
+[ext_resource type="PackedScene" uid="uid://d1pxqoaskfjxu" path="res://scenes/objects/fire.tscn" id="5_sedps"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8ort"]
 radius = 24.0
 height = 76.0
 
 [sub_resource type="Gradient" id="Gradient_mx8ux"]
+interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yt5m3"]
@@ -65,7 +67,8 @@ autostart = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(16, 8)
-color = Color(0.913239, 0.546676, 0.451014, 1)
+color = Color(0.992157, 0.890196, 0.698039, 1)
+shadow_color = Color(0, 0, 0, 0.917647)
 texture = SubResource("GradientTexture2D_yt5m3")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_3retb")]
@@ -82,6 +85,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
 shape = SubResource("CircleShape2D_raxel")
+
+[node name="Fire" parent="." instance=ExtResource("5_sedps")]
+z_index = 1
+position = Vector2(0, -65)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="LightArea" to="." method="_on_light_area_body_entered"]
