@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8sw76rqiyo5j"]
+[gd_scene load_steps=10 format=3 uid="uid://c8sw76rqiyo5j"]
 
 [ext_resource type="Script" path="res://scripts/brazier.gd" id="1_6hvt1"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_3retb"]
@@ -9,9 +9,6 @@
 radius = 24.0
 height = 76.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gtl83"]
-radius = 64.0
-
 [sub_resource type="Gradient" id="Gradient_mx8ux"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -20,6 +17,11 @@ gradient = SubResource("Gradient_mx8ux")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtl83"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_raxel"]
 
 [node name="Brazier" type="StaticBody2D"]
 y_sort_enabled = true
@@ -61,6 +63,11 @@ wait_time = 150.0
 one_shot = true
 autostart = true
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(16, 8)
+color = Color(0.913239, 0.546676, 0.451014, 1)
+texture = SubResource("GradientTexture2D_yt5m3")
+
 [node name="InteractionArea" parent="." instance=ExtResource("2_3retb")]
 position = Vector2(0, -24)
 action_name = "add fuel"
@@ -69,9 +76,13 @@ action_name = "add fuel"
 position = Vector2(2.08165e-12, 24)
 shape = SubResource("CircleShape2D_gtl83")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(16, 4)
-color = Color(0.913239, 0.546676, 0.451014, 1)
-texture = SubResource("GradientTexture2D_yt5m3")
+[node name="LightArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
+shape = SubResource("CircleShape2D_raxel")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="LightArea" to="." method="_on_light_area_body_entered"]
+[connection signal="body_exited" from="LightArea" to="." method="_on_light_area_body_exited"]
