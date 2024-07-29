@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bjyn7wv0tx6uh" path="res://assets/sprites/background.png" id="4_5u4fr"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_kiald"]
 [ext_resource type="PackedScene" uid="uid://tdawhwedsanv" path="res://scenes/objects/pebble_collectable.tscn" id="6_2oify"]
-[ext_resource type="PackedScene" uid="uid://c3u30wb3d7d53" path="res://scenes/objects/boulder.tscn" id="8_0odco"]
+[ext_resource type="PackedScene" path="res://scenes/objects/boulder.tscn" id="8_0odco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra1yg"]
 texture = ExtResource("4_5u4fr")
@@ -70,20 +70,9 @@ position = Vector2(-92, -71)
 [node name="Pebble3" parent="." instance=ExtResource("6_2oify")]
 position = Vector2(97, -148)
 
-[node name="Pebble4" parent="." instance=ExtResource("6_2oify")]
-position = Vector2(61, -67)
-
-[node name="Pebble5" parent="." instance=ExtResource("6_2oify")]
-position = Vector2(83, -67)
-
-[node name="Pebble6" parent="." instance=ExtResource("6_2oify")]
-position = Vector2(106, -68)
-
-[node name="Pebble7" parent="." instance=ExtResource("6_2oify")]
-position = Vector2(128, -68)
+[node name="Boulder" parent="." instance=ExtResource("8_0odco")]
+position = Vector2(221, -36)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.75
 blend_mode = 1
-[node name="Boulder" parent="." instance=ExtResource("8_0odco")]
-position = Vector2(221, -36)
