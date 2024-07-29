@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dweclt0lai76f"]
+[gd_scene load_steps=11 format=3 uid="uid://dweclt0lai76f"]
 
 [ext_resource type="PackedScene" uid="uid://do75wfv0w21ve" path="res://scenes/objects/player.tscn" id="1_s6c5f"]
 [ext_resource type="PackedScene" uid="uid://sekpjy3gd8mo" path="res://scenes/objects/dead_tree.tscn" id="2_p4q78"]
@@ -33,23 +33,15 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_ra1yg")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_qwrhr"]
-seed = 3
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aimi3"]
-width = 1024
-height = 1024
-noise = SubResource("FastNoiseLite_qwrhr")
-
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 
 [node name="player" parent="." instance=ExtResource("1_s6c5f")]
 position = Vector2(74, -5)
-max_speed = 200
-accel = 500
-friction = 400
+max_speed = 150
+accel = 350
+friction = 250
 inv = ExtResource("2_tvmd2")
 
 [node name="dead_tree" parent="." instance=ExtResource("2_p4q78")]
@@ -68,7 +60,6 @@ layer_0/name = "1"
 layer_1/name = "2"
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("5_kiald")
-noise_height_map = SubResource("NoiseTexture2D_aimi3")
 
 [node name="Pebble" parent="." instance=ExtResource("6_2oify")]
 position = Vector2(92, 37)
@@ -83,5 +74,5 @@ position = Vector2(97, -148)
 position = Vector2(221, -36)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.95
+energy = 0.85
 blend_mode = 1
