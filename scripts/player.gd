@@ -26,7 +26,11 @@ func _physics_process(delta):
 		burn_shadow(delta)
 	else:
 		shadow_darken(delta)
+	shadow_vision()
 	print("health " + str(burn_health) + " shadow " + str(shadow_health))
+
+func shadow_vision():
+	$PointLight2D.color.a = 1 - (shadow_health/max_shadow_health)
 
 func burn_shadow(delta):
 	if shadow_health < max_shadow_health:

@@ -13,11 +13,11 @@ func _ready():
 	burn_time.start()
 
 func _process(delta):
-	var left_time = burn_time.get_time_left() *0.5
-	$PointLight2D.scale.x = left_time/10
-	$PointLight2D.scale.y = left_time/20
-	$LightArea.scale.x = left_time/5
-	$LightArea.scale.y = left_time/10
+	var left_time = burn_time.get_time_left()
+	$PointLight2D.scale.x = left_time / 20
+	$PointLight2D.scale.y = left_time / 40
+	$LightArea.scale.x = left_time / 10
+	$LightArea.scale.y = left_time / 20
 
 
 func _add_fuel():

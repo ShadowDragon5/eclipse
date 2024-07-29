@@ -24,13 +24,14 @@ func _on_interact():
 	self.visible = false
 
 func drop_branch():
+	var ang = randi_range(0, 2 * PI)
+	var dist = randi_range(11,30)
 	branches_dropped += 1
 	var branch_instance = branch.instantiate()
-	branch_instance.global_position = $Marker2D.global_position
+	branch_instance.global_position.x = $Marker2D.global_position.x + dist * cos(ang)
+	branch_instance.global_position.y = $Marker2D.global_position.y + dist * sin(ang)
 	get_parent().add_child(branch_instance)
-	
-	await  get_tree().create_timer(3).timeout
-	
+
 	if branches_dropped < max_branches:
-		$branch_fall_timer.start()
+		$branch_fall_timer.start(randi_range(3,9))
 	
