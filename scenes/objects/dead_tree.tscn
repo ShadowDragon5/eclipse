@@ -18,7 +18,7 @@ item = ExtResource("2_myt55")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2.08165e-12, -4)
+position = Vector2(2.08165e-12, 0)
 texture = ExtResource("3_er5ew")
 offset = Vector2(2.08165e-12, -28)
 metadata/_aseprite_wizard_config_ = {
@@ -39,7 +39,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "f065380bd1bdad2169279ed1a48df8c2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_8msq7")
 
@@ -48,13 +47,13 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -32)
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_85smn")]
 position = Vector2(0, -4)
 action_name = "chop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_djadk")
 
 [connection signal="timeout" from="branch_fall_timer" to="." method="_on_branch_fall_timer_timeout"]

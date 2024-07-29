@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8sw76rqiyo5j"]
+[gd_scene load_steps=9 format=3 uid="uid://c8sw76rqiyo5j"]
 
 [ext_resource type="Script" path="res://scripts/brazier.gd" id="1_6hvt1"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_3retb"]
@@ -11,6 +11,15 @@ height = 76.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gtl83"]
 radius = 64.0
+
+[sub_resource type="Gradient" id="Gradient_mx8ux"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yt5m3"]
+gradient = SubResource("Gradient_mx8ux")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Brazier" type="StaticBody2D"]
 y_sort_enabled = true
@@ -59,5 +68,10 @@ action_name = "add fuel"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(2.08165e-12, 24)
 shape = SubResource("CircleShape2D_gtl83")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(10, 10)
+color = Color(0.913239, 0.546676, 0.451014, 1)
+texture = SubResource("GradientTexture2D_yt5m3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
