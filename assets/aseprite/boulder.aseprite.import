@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c51ynsweqe7ki"
+path="res://.godot/imported/boulder.aseprite-42f8afc75c1be136e85fc1eed9658324.res"
+
+[deps]
+
+source_file="res://assets/aseprite/boulder.aseprite"
+dest_files=["res://.godot/imported/boulder.aseprite-42f8afc75c1be136e85fc1eed9658324.res"]
+
+[params]
+

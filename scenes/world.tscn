@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dweclt0lai76f"]
+[gd_scene load_steps=11 format=3 uid="uid://dweclt0lai76f"]
 
 [ext_resource type="PackedScene" uid="uid://do75wfv0w21ve" path="res://scenes/objects/player.tscn" id="1_s6c5f"]
 [ext_resource type="PackedScene" uid="uid://sekpjy3gd8mo" path="res://scenes/objects/dead_tree.tscn" id="2_p4q78"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bjyn7wv0tx6uh" path="res://assets/sprites/background.png" id="4_5u4fr"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_kiald"]
 [ext_resource type="PackedScene" uid="uid://tdawhwedsanv" path="res://scenes/objects/pebble_collectable.tscn" id="6_2oify"]
+[ext_resource type="PackedScene" uid="uid://c3u30wb3d7d53" path="res://scenes/objects/boulder.tscn" id="8_0odco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra1yg"]
 texture = ExtResource("4_5u4fr")
@@ -84,3 +85,5 @@ position = Vector2(128, -68)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.75
 blend_mode = 1
+[node name="Boulder" parent="." instance=ExtResource("8_0odco")]
+position = Vector2(221, -36)
