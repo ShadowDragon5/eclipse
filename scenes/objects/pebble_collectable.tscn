@@ -56,8 +56,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3l6"]
-radius = 7.0
-height = 22.0
+radius = 11.0
 
 [node name="Pebble" type="Node2D"]
 y_sort_enabled = true
@@ -87,5 +86,5 @@ metadata/_aseprite_wizard_source_file_hash_ = "1589cf4c96a18073aec474d42adad6d4"
 action_name = "pick up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-rotation = 1.5708
+rotation = 4.71238
 shape = SubResource("CapsuleShape2D_2c3l6")

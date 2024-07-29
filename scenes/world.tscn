@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dweclt0lai76f"]
+[gd_scene load_steps=12 format=3 uid="uid://dweclt0lai76f"]
 
 [ext_resource type="PackedScene" uid="uid://do75wfv0w21ve" path="res://scenes/objects/player.tscn" id="1_s6c5f"]
 [ext_resource type="PackedScene" uid="uid://sekpjy3gd8mo" path="res://scenes/objects/dead_tree.tscn" id="2_p4q78"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_kiald"]
 [ext_resource type="PackedScene" uid="uid://tdawhwedsanv" path="res://scenes/objects/pebble_collectable.tscn" id="6_2oify"]
 [ext_resource type="PackedScene" path="res://scenes/objects/boulder.tscn" id="8_0odco"]
+[ext_resource type="PackedScene" uid="uid://c6pcst1813nkq" path="res://scenes/resource_spawner.tscn" id="9_1upd8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra1yg"]
 texture = ExtResource("4_5u4fr")
@@ -37,20 +38,14 @@ sources/0 = SubResource("TileSetAtlasSource_ra1yg")
 y_sort_enabled = true
 texture_filter = 1
 
+[node name="Brazier" parent="." instance=ExtResource("3_0hyf1")]
+
 [node name="player" parent="." instance=ExtResource("1_s6c5f")]
 position = Vector2(74, -5)
 max_speed = 150
 accel = 350
 friction = 250
 inv = ExtResource("2_tvmd2")
-
-[node name="dead_tree" parent="." instance=ExtResource("2_p4q78")]
-position = Vector2(-77, 41)
-
-[node name="dead_tree2" parent="." instance=ExtResource("2_p4q78")]
-position = Vector2(163, -167)
-
-[node name="Brazier" parent="." instance=ExtResource("3_0hyf1")]
 
 [node name="Background" type="TileMap" parent="."]
 z_index = -1
@@ -60,6 +55,16 @@ layer_0/name = "1"
 layer_1/name = "2"
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("5_kiald")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.8
+blend_mode = 1
+
+[node name="dead_tree" parent="." instance=ExtResource("2_p4q78")]
+position = Vector2(-77, 41)
+
+[node name="dead_tree2" parent="." instance=ExtResource("2_p4q78")]
+position = Vector2(163, -167)
 
 [node name="Pebble" parent="." instance=ExtResource("6_2oify")]
 position = Vector2(92, 37)
@@ -73,6 +78,14 @@ position = Vector2(97, -148)
 [node name="Boulder" parent="." instance=ExtResource("8_0odco")]
 position = Vector2(221, -36)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.85
-blend_mode = 1
+[node name="ResourceSpawner" parent="." instance=ExtResource("9_1upd8")]
+spawn_radius_start = 5
+spawn_radius_end = 25
+branch_from = 0.45
+branch_to = 0.55
+tree_from = 0.1
+tree_to = 0.25
+pebble_from = 0.01
+pebble_to = 0.15
+boulder_from = 0.01
+boulder_to = 0.05
