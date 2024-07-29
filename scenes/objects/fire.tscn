@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://d1pxqoaskfjxu"]
+
+[ext_resource type="Material" uid="uid://6dp46gjvk5sc" path="res://assets/shaders/ember_material.tres" id="1_a3wap"]
+[ext_resource type="Shader" path="res://assets/shaders/emissive.gdshader" id="1_sxokk"]
+[ext_resource type="Texture2D" uid="uid://cbkejyfuc3g5k" path="res://assets/sprites/fire.png" id="1_y1f2l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gaqd"]
+shader = ExtResource("1_sxokk")
+shader_parameter/brightness = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t7rq"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pltx"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywpu6"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxd5b"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnom6"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k80y"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eah3"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbuw4"]
+atlas = ExtResource("1_y1f2l")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tbqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t7rq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pltx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywpu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxd5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnom6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k80y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eah3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbuw4")
+}],
+"loop": true,
+"name": &"medium",
+"speed": 8.0
+}]
+
+[node name="Fire" type="Node2D"]
+
+[node name="EmberParticles" type="GPUParticles2D" parent="."]
+amount = 24
+amount_ratio = 0.5
+process_material = ExtResource("1_a3wap")
+lifetime = 5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5gaqd")
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_8tbqt")
+animation = &"medium"
+autoplay = "medium"
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites",
+"o_name": "",
+"only_visible": true,
+"slice": "",
+"source": "res://assets/aseprite/fire.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": false
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5f08b33e4e13f00c5a2daf64fbeb2f72"
