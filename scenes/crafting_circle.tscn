@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0fwl6laugvmn"]
+
+[ext_resource type="Script" path="res://craftingCircle.gd" id="1_5ld6f"]
+[ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_q178v"]
+[ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="2_rvqoc"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_1d7wr"]
+[ext_resource type="Resource" uid="uid://dawgtdh0hjqea" path="res://inventory/items/rock.tres" id="3_m6gqa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lrk5w"]
+radius = 64.0
+
+[node name="CraftingCircle" type="Node2D"]
+script = ExtResource("1_5ld6f")
+crafts = Array[String](["head", "arms", "body", "legs", "axe", "pick", "wood", "rock"])
+wood_item = ExtResource("2_q178v")
+rock_item = ExtResource("3_m6gqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rvqoc")
+
+[node name="InteractionAreaHead" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "craft head"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaHead"]
+polygon = PackedVector2Array(0, 0, -64, 0, -62, -17, -56, -32, -45, -45)
+
+[node name="InteractionAreaArms" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "craft arms"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaArms"]
+polygon = PackedVector2Array(0, 0, -45, -45, -32, -56, -17, -62, 0, -64)
+
+[node name="InteractionAreaBody" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "craft body"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaBody"]
+polygon = PackedVector2Array(0, 0, 45, -45, 32, -56, 17, -62, 0, -64)
+
+[node name="InteractionAreaLegs" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "craft legs"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaLegs"]
+polygon = PackedVector2Array(0, 0, 64, 0, 62, -17, 56, -32, 45, -45)
+
+[node name="InteractionAreaAxe" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "craft axe"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaAxe"]
+polygon = PackedVector2Array(0, 0, 64, 0, 62, 17, 56, 32, 45, 45)
+
+[node name="InteractionAreaPick" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "craft pick"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaPick"]
+polygon = PackedVector2Array(0, 0, 45, 45, 32, 56, 17, 62, 0, 64)
+
+[node name="InteractionAreaWood" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "add wood"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaWood"]
+polygon = PackedVector2Array(0, 0, -45, 45, -32, 56, -17, 62, 0, 64)
+
+[node name="InteractionAreaRock" parent="." instance=ExtResource("3_1d7wr")]
+action_name = "add rock"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaRock"]
+polygon = PackedVector2Array(0, 0, -64, 0, -62, 17, -56, 32, -45, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lrk5w")

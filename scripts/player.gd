@@ -153,8 +153,14 @@ func entered_light_area():
 func exit_light_area():
 	is_area_light -= 1
 
+func add_pick():
+	pick = true
+
 func has_pick():
 	return pick
+
+func add_axe():
+	axe = true
 
 func has_axe():
 	return axe

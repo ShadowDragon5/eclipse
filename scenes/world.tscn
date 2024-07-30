@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dweclt0lai76f"]
+[gd_scene load_steps=13 format=3 uid="uid://dweclt0lai76f"]
 
 [ext_resource type="PackedScene" uid="uid://do75wfv0w21ve" path="res://scenes/objects/player.tscn" id="1_s6c5f"]
 [ext_resource type="PackedScene" uid="uid://sekpjy3gd8mo" path="res://scenes/objects/dead_tree.tscn" id="2_p4q78"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://tdawhwedsanv" path="res://scenes/objects/pebble_collectable.tscn" id="6_2oify"]
 [ext_resource type="PackedScene" uid="uid://3086cmgvyeq6" path="res://scenes/objects/boulder.tscn" id="8_0odco"]
 [ext_resource type="PackedScene" uid="uid://c6pcst1813nkq" path="res://scenes/resource_spawner.tscn" id="9_1upd8"]
+[ext_resource type="PackedScene" uid="uid://d0fwl6laugvmn" path="res://scenes/crafting_circle.tscn" id="10_mmlh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra1yg"]
 texture = ExtResource("4_5u4fr")
@@ -89,3 +90,6 @@ boulder_to = 0.05
 
 [node name="player2" parent="." instance=ExtResource("1_s6c5f")]
 position = Vector2(61, -41)
+
+[node name="CraftingCircle" parent="." instance=ExtResource("10_mmlh2")]
+position = Vector2(159, 45)
