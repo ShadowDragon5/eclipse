@@ -16,6 +16,9 @@ var shadow_health = 25
 
 var input = Vector2.ZERO
 
+var pick = false
+var axe = true
+
 func _ready():
 	burn_health = max_burn_health
 	shadow_health = max_shadow_health
@@ -82,3 +85,9 @@ func entered_light_area():
 
 func exit_light_area():
 	is_area_light -= 1
+
+func has_pick():
+	return pick
+
+func has_axe():
+	return axe

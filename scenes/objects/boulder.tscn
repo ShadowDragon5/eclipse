@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3u30wb3d7d53"]
+[gd_scene load_steps=6 format=3 uid="uid://3086cmgvyeq6"]
 
+[ext_resource type="Script" path="res://scripts/boulder.gd" id="1_ceyed"]
 [ext_resource type="Texture2D" uid="uid://dxvyib7r51d7c" path="res://assets/sprites/boulder.png" id="1_f36rn"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_udjt8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8reu6"]
-radius = 8.0
+radius = 16.0
 height = 64.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0d1y"]
+radius = 32.0
+height = 96.0
+
 [node name="Boulder" type="StaticBody2D"]
+script = ExtResource("1_ceyed")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2.08165e-12, -8)
+position = Vector2(0, -16)
 texture = ExtResource("1_f36rn")
-offset = Vector2(2.08165e-12, -24)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,
@@ -31,6 +37,12 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "2311bc53611ad0377a5f279c47230f01"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.08165e-12, -8)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_8reu6")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_udjt8")]
+action_name = "break"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_m0d1y")
