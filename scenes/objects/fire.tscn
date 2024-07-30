@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1pxqoaskfjxu"]
+[gd_scene load_steps=15 format=3 uid="uid://d1pxqoaskfjxu"]
 
 [ext_resource type="Material" uid="uid://6dp46gjvk5sc" path="res://assets/shaders/ember_material.tres" id="1_a3wap"]
 [ext_resource type="Shader" path="res://assets/shaders/emissive.gdshader" id="1_sxokk"]
 [ext_resource type="Texture2D" uid="uid://cbkejyfuc3g5k" path="res://assets/sprites/fire.png" id="1_y1f2l"]
+[ext_resource type="Texture2D" uid="uid://bs24kka5g3hlo" path="res://assets/textures/light_gradient.tres" id="4_cndew"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5gaqd"]
 shader = ExtResource("1_sxokk")
-shader_parameter/brightness = 0.2
+shader_parameter/brightness = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t7rq"]
 atlas = ExtResource("1_y1f2l")
@@ -76,7 +77,6 @@ animations = [{
 
 [node name="EmberParticles" type="GPUParticles2D" parent="."]
 amount = 24
-amount_ratio = 0.5
 process_material = ExtResource("1_a3wap")
 lifetime = 5.0
 
@@ -102,3 +102,8 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 metadata/_aseprite_wizard_source_file_hash_ = "5f08b33e4e13f00c5a2daf64fbeb2f72"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2, 1)
+color = Color(0.984314, 0.796078, 0.611765, 1)
+texture = ExtResource("4_cndew")

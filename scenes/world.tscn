@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bjyn7wv0tx6uh" path="res://assets/sprites/background.png" id="4_5u4fr"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_kiald"]
 [ext_resource type="PackedScene" uid="uid://tdawhwedsanv" path="res://scenes/objects/pebble_collectable.tscn" id="6_2oify"]
-[ext_resource type="PackedScene" path="res://scenes/objects/boulder.tscn" id="8_0odco"]
+[ext_resource type="PackedScene" uid="uid://c3u30wb3d7d53" path="res://scenes/objects/boulder.tscn" id="8_0odco"]
 [ext_resource type="PackedScene" uid="uid://c6pcst1813nkq" path="res://scenes/resource_spawner.tscn" id="9_1upd8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra1yg"]

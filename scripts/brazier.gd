@@ -13,11 +13,13 @@ func _ready():
 	burn_time.start()
 
 func _process(delta):
-	var left_time = burn_time.get_time_left()
-	$PointLight2D.scale.x = left_time / 20
-	$PointLight2D.scale.y = left_time / 40
-	$LightArea.scale.x = left_time / 10
-	$LightArea.scale.y = left_time / 20
+	var left_time_ratio = sqrt(burn_time.get_time_left())
+	var aspect_ratio = 0.5
+
+	$PointLight2D.scale.x = left_time_ratio / 2
+	$PointLight2D.scale.y = $PointLight2D.scale.x * aspect_ratio
+
+	$LightArea.scale = $PointLight2D.scale * 2
 
 
 func _add_fuel():
@@ -29,7 +31,7 @@ func _add_fuel():
 	print(burn_time.get_time_left())
 
 func _on_timer_timeout():
-	print ("Game Over")
+	print("Game Over")
 
 func _on_light_area_body_entered(body):
 	if body.has_method("player"):

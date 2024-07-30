@@ -11,6 +11,6 @@ void fragment() {
 // Called for every pixel for every light affecting the CanvasItem.
 void light() {
 	// ignore shading from other sources and always draw at full brightness
-	vec4 color = texture(TEXTURE, UV);
-	LIGHT = color;
+	// vec4 color = texture(TEXTURE, UV);
+	// LIGHT = color;
 }
