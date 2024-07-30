@@ -41,6 +41,7 @@ func _ready():
 	if current_body == null:
 		current_body = self
 		Globals.set("player",self)
+		set_collision_layer(3)
 		$Camera2D.make_current()
 	burn_health = max_burn_health
 	shadow_health = max_shadow_health
@@ -70,12 +71,25 @@ func swap_body(): # TODO polish camera swap
 	if bodies.size() < 2:
 		return false
 	if current_body == self:
+		#set next body as body
 		var curr_id = bodies.find(self)
 		current_body = bodies[(curr_id+1) % bodies.size()]
-		$Inv_ui.close()		#close inventory
+		
+		#move interactions
+		current_body.set_collision_layer(3)
+		set_collision_layer(1)
+		
+		#close inventory
+		$Inv_ui.close()
+		
+		#update global pointer to new body
 		Globals.set("player",current_body)
+		
+		#make shadow vision invisable
 		$PointLight2D.color.a = 0
+		#stop body movement
 		velocity = Vector2.ZERO
+		#transition camera
 		CameraTransition.transition_camera2D($Camera2D,current_body.get_node("Camera2D"))
 	return true
 
@@ -86,6 +100,8 @@ func burn_shadow(delta):
 	if shadow_health < max_shadow_health:
 		burn_health -= delta / burn_rate
 		shadow_health += delta
+	if burn_health <= 0:
+		lose_body()
 
 func shadow_darken(delta):
 	shadow_health -= delta

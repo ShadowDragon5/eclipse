@@ -27,7 +27,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
 script = ExtResource("1_h3a73")
 inv = SubResource("Resource_alrmt")
 
