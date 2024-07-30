@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InteractionManager="*res://interactioin/InteractionManager.tscn"
 CameraTransition="*res://scenes/camera_transition.tscn"
+Globals="*res://scripts/Globals.gd"
 
 [editor_plugins]
 

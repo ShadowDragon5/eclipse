@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-@export var max_speed = 400
-@export var accel = 1500
-@export var friction = 600
+@export var max_speed = 150
+@export var accel = 350
+@export var friction = 250
+@export var inventory_size:int = 6
 
 @export var inv: Inv
 
@@ -21,12 +22,25 @@ var shadow_health = 25
 var input = Vector2.ZERO
 
 var pick = false
-var axe = true
+var axe = false
 
 func _ready():
+	inv = Inv.new()
+	
+	inv.slots = []
+	for i in inventory_size:
+		inv.slots.append(InvSlot.new())
+	
+	var invnode = preload("res://inventory/inv_ui.tscn").instantiate()
+	invnode.position.x = -34
+	invnode.position.y = -82
+	
+	add_child(invnode)
+	
 	bodies.append(self)
 	if current_body == null:
 		current_body = self
+		Globals.set("player",self)
 		$Camera2D.make_current()
 	burn_health = max_burn_health
 	shadow_health = max_shadow_health
@@ -40,21 +54,30 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("swap_body") && !swapping:
 			print("pressed swap body")
 			swapping = true
-			swap_body()
+			if !swap_body():
+				print("need more bodies to swap")
 			return
 		if Input.is_action_just_released("swap_body"):
 			swapping = false
+		if Input.is_action_just_pressed("open_inventory"):
+			$Inv_ui.open_input()
 		player_movement(delta)
 		shadow_vision()
 
 	#print("health " + str(burn_health) + " shadow " + str(shadow_health))
 
-func swap_body():
+func swap_body(): # TODO polish camera swap
+	if bodies.size() < 2:
+		return false
 	if current_body == self:
 		var curr_id = bodies.find(self)
 		current_body = bodies[(curr_id+1) % bodies.size()]
+		$Inv_ui.close()		#close inventory
+		Globals.set("player",current_body)
 		$PointLight2D.color.a = 0
+		velocity = Vector2.ZERO
 		CameraTransition.transition_camera2D($Camera2D,current_body.get_node("Camera2D"))
+	return true
 
 func shadow_vision():
 	$PointLight2D.color.a = 1 - (shadow_health/max_shadow_health)
@@ -70,7 +93,14 @@ func shadow_darken(delta):
 		lose_body()
 
 func lose_body():
-	print("body gone")
+	inv.drop_all(self,global_position.x,global_position.y,24)
+	if swap_body():
+		bodies.erase(self)
+		self.queue_free()
+		return
+	game_over()
+
+func game_over():
 	pass
 
 func get_input():

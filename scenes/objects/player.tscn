@@ -1,8 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://do75wfv0w21ve"]
+[gd_scene load_steps=10 format=3 uid="uid://do75wfv0w21ve"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_h3a73"]
 [ext_resource type="Texture2D" uid="uid://cpv50atu3erv7" path="res://assets/sprites/player.png" id="1_nl0nw"]
-[ext_resource type="PackedScene" uid="uid://va25n701vsg0" path="res://inventory/inv_ui.tscn" id="3_qegtv"]
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="2_yxy77"]
+[ext_resource type="Script" path="res://inventory/inv_slot.gd" id="3_5b88h"]
+
+[sub_resource type="Resource" id="Resource_owap7"]
+script = ExtResource("3_5b88h")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_alrmt"]
+script = ExtResource("2_yxy77")
+slots = Array[ExtResource("3_5b88h")]([SubResource("Resource_owap7")])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77lb4"]
 radius = 4.0
@@ -20,6 +29,7 @@ fill_to = Vector2(1, 0.5)
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_h3a73")
+inv = SubResource("Resource_alrmt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -57,17 +67,10 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Inv_ui" parent="." instance=ExtResource("3_qegtv")]
-visible = false
-offset_left = -42.0
-offset_top = -102.0
-offset_right = 42.0
-offset_bottom = -40.0
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -4)
 scale = Vector2(2.5, 2.5)
 color = Color(0.431373, 0.431373, 0.427451, 0)
-energy = 0.75
+energy = 4.0
 texture = SubResource("GradientTexture2D_i4thr")
 texture_scale = 1.6

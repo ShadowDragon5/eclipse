@@ -42,16 +42,7 @@ texture_filter = 1
 
 [node name="player" parent="." instance=ExtResource("1_s6c5f")]
 position = Vector2(74, -5)
-max_speed = 150
-accel = 350
-friction = 250
 inv = ExtResource("2_tvmd2")
-
-[node name="player2" parent="." instance=ExtResource("1_s6c5f")]
-position = Vector2(43, 38)
-max_speed = 150
-accel = 350
-friction = 250
 
 [node name="Background" type="TileMap" parent="."]
 z_index = -1
@@ -95,3 +86,6 @@ pebble_from = 0.01
 pebble_to = 0.15
 boulder_from = 0.01
 boulder_to = 0.05
+
+[node name="player2" parent="." instance=ExtResource("1_s6c5f")]
+position = Vector2(61, -41)

@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var player = get_tree().get_first_node_in_group("player")
 
 @export var item: InvItem
 @export var max_branches = 6
@@ -22,7 +21,7 @@ func _on_branch_fall_timer_timeout():
 	drop_branch()
 
 func _on_interact():
-	if player.has_axe():
+	if Globals.get("player").has_axe():
 		for i in range(0,randi_range(6,13)):
 			drop_branch()
 			self.queue_free()

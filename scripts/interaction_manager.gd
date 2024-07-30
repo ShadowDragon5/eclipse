@@ -1,7 +1,6 @@
 extends Node2D
 
 
-@onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $Label
 
 
@@ -28,8 +27,8 @@ func _process(delta):
 		label.hide()
 
 func _sort_by_distance_to_player(area1, area2):
-	var area1_to_palyer = player.global_position.distance_to(area1.global_position)
-	var area2_to_palyer = player.global_position.distance_to(area2.global_position)
+	var area1_to_palyer = Globals.get("player").global_position.distance_to(area1.global_position)
+	var area2_to_palyer = Globals.get("player").global_position.distance_to(area2.global_position)
 	return area1_to_palyer < area2_to_palyer
 
 func _input(event):

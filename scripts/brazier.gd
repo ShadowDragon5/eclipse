@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var burn_time: Timer = $Timer
 
@@ -23,9 +22,9 @@ func _process(delta):
 
 
 func _add_fuel():
-	if player.has_item(accaptable_fuel):
+	if Globals.get("player").has_item(accaptable_fuel):
 		burn_time.start(burn_time.get_time_left() + fuel_time)
-		player.remove_item(accaptable_fuel)
+		Globals.get("player").remove_item(accaptable_fuel)
 	else:
 		print("no fuel in inventory")
 	print(burn_time.get_time_left())

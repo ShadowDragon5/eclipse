@@ -1,7 +1,6 @@
 extends StaticBody2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var player = get_tree().get_first_node_in_group("player")
 
 @export var item: InvItem
 
@@ -15,4 +14,4 @@ func _collect():
 		self.queue_free()
 
 func playerCollect():
-	player.collect(item)
+	Globals.get("player").collect(item)
