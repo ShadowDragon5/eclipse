@@ -24,7 +24,7 @@ func _on_interact():
 				drop_pebble()
 			self.queue_free()
 	else:
-		print("pick needed")
+		print("pickaxe needed")
 
 func drop_pebble():
 	var ang = randi_range(0, 2 * PI)

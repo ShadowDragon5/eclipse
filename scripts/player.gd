@@ -6,6 +6,10 @@ extends CharacterBody2D
 
 @export var inv: Inv
 
+static var bodies: Array = []
+static var current_body: CharacterBody2D = null
+static  var swapping: bool = false
+
 var max_burn_health = 15
 var max_shadow_health = 25
 var burn_rate = 2
@@ -20,17 +24,37 @@ var pick = false
 var axe = true
 
 func _ready():
+	bodies.append(self)
+	if current_body == null:
+		current_body = self
+		$Camera2D.make_current()
 	burn_health = max_burn_health
 	shadow_health = max_shadow_health
 
 func _physics_process(delta):
-	player_movement(delta)
 	if is_area_light > 0:
 		burn_shadow(delta)
 	else:
 		shadow_darken(delta)
-	shadow_vision()
+	if current_body == self:
+		if Input.is_action_just_pressed("swap_body") && !swapping:
+			print("pressed swap body")
+			swapping = true
+			swap_body()
+			return
+		if Input.is_action_just_released("swap_body"):
+			swapping = false
+		player_movement(delta)
+		shadow_vision()
+
 	#print("health " + str(burn_health) + " shadow " + str(shadow_health))
+
+func swap_body():
+	if current_body == self:
+		var curr_id = bodies.find(self)
+		current_body = bodies[(curr_id+1) % bodies.size()]
+		$PointLight2D.color.a = 0
+		CameraTransition.transition_camera2D($Camera2D,current_body.get_node("Camera2D"))
 
 func shadow_vision():
 	$PointLight2D.color.a = 1 - (shadow_health/max_shadow_health)
@@ -77,9 +101,6 @@ func has_item(item):
 func remove_item(item):
 	inv.remove_item(item)
 
-func player():
-	pass
-
 func entered_light_area():
 	is_area_light += 1
 
@@ -91,3 +112,6 @@ func has_pick():
 
 func has_axe():
 	return axe
+
+func player():
+	pass

@@ -47,6 +47,12 @@ accel = 350
 friction = 250
 inv = ExtResource("2_tvmd2")
 
+[node name="player2" parent="." instance=ExtResource("1_s6c5f")]
+position = Vector2(43, 38)
+max_speed = 150
+accel = 350
+friction = 250
+
 [node name="Background" type="TileMap" parent="."]
 z_index = -1
 tile_set = SubResource("TileSet_58fxl")
@@ -57,7 +63,7 @@ layer_1/tile_data = PackedInt32Array()
 script = ExtResource("5_kiald")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.8
+energy = 0.77
 blend_mode = 1
 
 [node name="dead_tree" parent="." instance=ExtResource("2_p4q78")]
