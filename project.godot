@@ -21,6 +21,10 @@ InteractionManager="*res://interactioin/InteractionManager.tscn"
 CameraTransition="*res://scenes/camera_transition.tscn"
 Globals="*res://scripts/Globals.gd"
 
+[display]
+
+window/size/mode=3
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
