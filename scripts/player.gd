@@ -16,8 +16,8 @@ static var bodies: Array = []
 static var current_body: CharacterBody2D = null
 static  var swapping: bool = false
 
-var max_burn_health = 15
-var max_shadow_health = 25
+var max_burn_health = 25
+var max_shadow_health = 40
 var burn_rate = 2
 
 var is_area_light = 0
@@ -58,7 +58,6 @@ func _physics_process(delta):
 		shadow_darken(delta)
 	if current_body == self:
 		if Input.is_action_just_pressed("swap_body") && !swapping:
-			print("pressed swap body")
 			swapping = true
 			if !swap_body():
 				print("need more bodies to swap")

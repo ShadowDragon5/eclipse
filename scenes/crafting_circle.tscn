@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0fwl6laugvmn"]
+[gd_scene load_steps=10 format=3 uid="uid://d0fwl6laugvmn"]
 
 [ext_resource type="Script" path="res://scripts/craftingCircle.gd" id="1_jackj"]
+[ext_resource type="Resource" uid="uid://cwoctbqjen8yv" path="res://inventory/items/head.tres" id="2_0nc2k"]
 [ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_q178v"]
 [ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="2_rvqoc"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_1d7wr"]
 [ext_resource type="Resource" uid="uid://dawgtdh0hjqea" path="res://inventory/items/rock.tres" id="3_m6gqa"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_lrk5w"]
-radius = 64.0
+[ext_resource type="Resource" uid="uid://cafko2wp2vxkc" path="res://inventory/items/arms.tres" id="3_wwrmf"]
+[ext_resource type="Resource" uid="uid://8pjmu4f4j7yv" path="res://inventory/items/body.tres" id="4_tln05"]
+[ext_resource type="Resource" uid="uid://dmxbexig6r7ci" path="res://inventory/items/legs.tres" id="5_cgmob"]
 
 [node name="CraftingCircle" type="Node2D"]
 script = ExtResource("1_jackj")
-crafts = Array[String](["head", "arms", "body", "legs", "axe", "pick", "wood", "rock"])
+head_item = ExtResource("2_0nc2k")
+arms_item = ExtResource("3_wwrmf")
+body_item = ExtResource("4_tln05")
+legs_item = ExtResource("5_cgmob")
 wood_item = ExtResource("2_q178v")
 rock_item = ExtResource("3_m6gqa")
 
@@ -66,6 +70,3 @@ action_name = "add rock"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionAreaRock"]
 polygon = PackedVector2Array(0, 0, -64, 0, -62, 17, -56, 32, -45, 45)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_lrk5w")

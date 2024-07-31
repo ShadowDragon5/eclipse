@@ -674,7 +674,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "71a2709b471a686d9a7d7e2d239b912a"
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6l3i0")
-animation = &"up"
+animation = &"idle"
 metadata/_aseprite_wizard_config_ = {
 "layer": "torso",
 "o_ex_p": "",
@@ -695,7 +695,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "81bf833f9a51ddaa61f464e341e117f0"
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_k3rgk")
-animation = &"interact"
+animation = &"idle"
 metadata/_aseprite_wizard_config_ = {
 "layer": "legs",
 "o_ex_p": "",

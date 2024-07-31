@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready var interaction_area: InteractionArea = $InteractionArea
-
-@export var crafts:Array[String]
 @export var head_item: InvItem
 @export var arms_item: InvItem
 @export var body_item: InvItem
