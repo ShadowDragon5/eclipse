@@ -4,7 +4,10 @@ extends CharacterBody2D
 @onready var arms = %Arms
 @onready var torso = %Torso
 @onready var legs = %Legs
+@onready var durability = $Durability
+@onready var shadow = $Shadow
 @onready var comment = preload("res://scenes/text_comment.tscn")
+
 
 @export var max_speed = 150
 @export var accel = 350
@@ -49,8 +52,14 @@ func _ready():
 		Globals.set("player",self)
 		set_collision_layer(3)
 		$Camera2D.make_current()
+		durability.visible = true
+		shadow.visible = true
 	burn_health = max_burn_health
 	shadow_health = max_shadow_health
+	durability.max_value = max_burn_health
+	durability.value = burn_health
+	shadow.max_value = max_shadow_health
+	shadow.value = max_shadow_health-shadow_health
 
 func _physics_process(delta):
 	if is_area_light > 0:
@@ -86,6 +95,11 @@ func swap_body(): # TODO polish camera swap
 		
 		#close inventory
 		$Inv_ui.close()
+		durability.visible = false
+		shadow.visible = false
+		current_body.durability.visible = true
+		current_body.shadow.visible = true
+		
 		
 		#update global pointer to new body
 		Globals.set("player",current_body)
@@ -104,12 +118,15 @@ func shadow_vision():
 func burn_shadow(delta):
 	if shadow_health < max_shadow_health:
 		burn_health -= delta / burn_rate
+		durability.value = burn_health
 		shadow_health += delta
+		shadow.value = max_shadow_health-shadow_health
 	if burn_health <= 0:
 		lose_body()
 
 func shadow_darken(delta):
 	shadow_health -= delta
+	shadow.value = max_shadow_health-shadow_health
 	if shadow_health <= 0:
 		lose_body()
 
