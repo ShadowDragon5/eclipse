@@ -8,6 +8,10 @@ signal update
 
 var branch = preload("res://scenes/objects/branch_collectable.tscn")
 var pebble = preload("res://scenes/objects/pebble_collectable.tscn")
+var head = preload("res://scenes/head_collectable.tscn")
+var arms = preload("res://scenes/arms_collectable.tscn")
+var torso = preload("res://scenes/body_collectable.tscn")
+var legs = preload("res://scenes/legs_collectable.tscn")
 
 
 func insert(item:InvItem):
@@ -50,6 +54,15 @@ func drop_item(body,item:String, x, y):
 			resource_instance = branch.instantiate()
 		"rock":
 			resource_instance = pebble.instantiate()
+		"head":
+			resource_instance = head.instantiate()
+		"arms":
+			resource_instance = arms.instantiate()
+		"body":
+			resource_instance = torso.instantiate()
+		"legs":
+			resource_instance = legs.instantiate()
+
 	if resource_instance == null:
 		return
 	resource_instance.global_position.x = x

@@ -23,4 +23,4 @@ func _on_interact():
 		new_body.position = position
 		get_parent().add_child(new_body)
 	else:
-		print("missing materials")
+		Globals.get("player").add_comment("missing materials")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://u1twbymv243t"]
+
+[ext_resource type="Script" path="res://scripts/legs_collectable.gd" id="1_2r8c1"]
+[ext_resource type="Resource" uid="uid://dmxbexig6r7ci" path="res://inventory/items/legs.tres" id="2_7uhff"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_jocjx"]
+[ext_resource type="Texture2D" uid="uid://cwk3vinbow2qg" path="res://assets/sprites/player_body_parts/leg_icon.png" id="3_p3ael"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3l6"]
+radius = 11.0
+
+[node name="Legs" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_2r8c1")
+item = ExtResource("2_7uhff")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_p3ael")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_jocjx")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 4.71238
+shape = SubResource("CapsuleShape2D_2c3l6")

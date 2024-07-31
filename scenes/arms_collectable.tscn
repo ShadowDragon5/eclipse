@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://2kxc8hnem7dp"]
+
+[ext_resource type="Texture2D" uid="uid://bqcyu1ngwjywx" path="res://assets/sprites/player_body_parts/arms_icon.png" id="1_uoqyk"]
+[ext_resource type="Script" path="res://scripts/arms_collectable.gd" id="1_yw7e4"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_22ivp"]
+[ext_resource type="Resource" uid="uid://cafko2wp2vxkc" path="res://inventory/items/arms.tres" id="2_xpmip"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3l6"]
+radius = 11.0
+
+[node name="Arms" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_yw7e4")
+item = ExtResource("2_xpmip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uoqyk")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_22ivp")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 4.71238
+shape = SubResource("CapsuleShape2D_2c3l6")

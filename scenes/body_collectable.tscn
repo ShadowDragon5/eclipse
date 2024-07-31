@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://da77li600frm3"]
+
+[ext_resource type="Script" path="res://scripts/body_collectable.gd" id="1_ejr8o"]
+[ext_resource type="Texture2D" uid="uid://nu7c5nbn8j1y" path="res://assets/sprites/player_body_parts/torso_icon.png" id="1_y10lm"]
+[ext_resource type="Resource" uid="uid://8pjmu4f4j7yv" path="res://inventory/items/body.tres" id="2_1fwa7"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_e1bud"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3l6"]
+radius = 11.0
+
+[node name="Body" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ejr8o")
+item = ExtResource("2_1fwa7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y10lm")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_e1bud")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 4.71238
+shape = SubResource("CapsuleShape2D_2c3l6")

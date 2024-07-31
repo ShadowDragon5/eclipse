@@ -61,7 +61,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("swap_body") && !swapping:
 			swapping = true
 			if !swap_body():
-				print("need more bodies to swap")
+				Globals.get("player").add_comment("need more bodies to swap")
 			return
 		if Input.is_action_just_released("swap_body"):
 			swapping = false

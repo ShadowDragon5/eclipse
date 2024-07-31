@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddpouj4ufmo4b"]
+
+[ext_resource type="Texture2D" uid="uid://pmoyug3r0my7" path="res://assets/sprites/player_body_parts/head_icon.png" id="1_5qb7b"]
+[ext_resource type="Script" path="res://scripts/head_collectable.gd" id="1_rs5uf"]
+[ext_resource type="Resource" uid="uid://cwoctbqjen8yv" path="res://inventory/items/head.tres" id="2_0sjla"]
+[ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="2_jkp0s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3l6"]
+radius = 11.0
+
+[node name="Head" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rs5uf")
+item = ExtResource("2_0sjla")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5qb7b")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_jkp0s")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 4.71238
+shape = SubResource("CapsuleShape2D_2c3l6")
