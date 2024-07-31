@@ -3,6 +3,10 @@ extends Node2D
 @onready var interaction_area: InteractionArea = $InteractionArea
 
 @export var crafts:Array[String]
+@export var head_item: InvItem
+@export var arms_item: InvItem
+@export var body_item: InvItem
+@export var legs_item: InvItem
 @export var wood_item: InvItem
 @export var rock_item: InvItem
 
@@ -19,6 +23,55 @@ func _ready():
 	$InteractionAreaPick.interact = Callable(self, "_on_interact6")
 	$InteractionAreaWood.interact = Callable(self, "_on_interact7")
 	$InteractionAreaRock.interact = Callable(self, "_on_interact8")
+
+
+func _on_interact1():
+	if Globals.get("player").has_item(head_item):
+		print("You can only carry one extra head")
+		return
+	
+	if wood_count >= 0 && rock_count >= 3:
+		Globals.get("player").collect(head_item)
+		wood_count -= 0
+		rock_count -= 3
+	else:
+		print("missing materials")
+
+func _on_interact2():
+	if Globals.get("player").has_item(arms_item):
+		print("You can only carry one extra set of arms")
+		return
+	
+	if wood_count >= 0 && rock_count >= 2:
+		Globals.get("player").collect(arms_item)
+		wood_count -= 0
+		rock_count -= 2
+	else:
+		print("missing materials")
+
+func _on_interact3():
+	if Globals.get("player").has_item(body_item):
+		print("You can only carry one extra torso")
+		return
+	
+	if wood_count >= 0 && rock_count >= 4:
+		Globals.get("player").collect(body_item)
+		wood_count -= 0
+		rock_count -= 4
+	else:
+		print("missing materials")
+
+func _on_interact4():
+	if Globals.get("player").has_item(legs_item):
+		print("You can only carry one extra set of legs")
+		return
+	
+	if wood_count >= 0 && rock_count >= 2:
+		Globals.get("player").collect(legs_item)
+		wood_count -= 0
+		rock_count -= 2
+	else:
+		print("missing materials")
 
 func _on_interact5():
 	if Globals.get("player").has_axe():

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0fwl6laugvmn"]
 
-[ext_resource type="Script" path="res://craftingCircle.gd" id="1_5ld6f"]
+[ext_resource type="Script" path="res://scripts/craftingCircle.gd" id="1_jackj"]
 [ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_q178v"]
 [ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="2_rvqoc"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_1d7wr"]
@@ -10,7 +10,7 @@
 radius = 64.0
 
 [node name="CraftingCircle" type="Node2D"]
-script = ExtResource("1_5ld6f")
+script = ExtResource("1_jackj")
 crafts = Array[String](["head", "arms", "body", "legs", "axe", "pick", "wood", "rock"])
 wood_item = ExtResource("2_q178v")
 rock_item = ExtResource("3_m6gqa")
