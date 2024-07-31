@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var arms = %Arms
 @onready var torso = %Torso
 @onready var legs = %Legs
+@onready var comment = preload("res://scenes/text_comment.tscn")
 
 @export var max_speed = 150
 @export var accel = 350
@@ -98,7 +99,7 @@ func swap_body(): # TODO polish camera swap
 	return true
 
 func shadow_vision():
-	$PointLight2D.color.a = 1 - (shadow_health/max_shadow_health)
+	$PointLight2D.color.a = min((1 - (shadow_health/max_shadow_health)),1)
 
 func burn_shadow(delta):
 	if shadow_health < max_shadow_health:
@@ -121,6 +122,7 @@ func lose_body():
 	game_over()
 
 func game_over():
+	get_tree().quit()
 	pass
 
 func get_input():
@@ -189,3 +191,11 @@ func has_axe():
 
 func player():
 	pass
+
+func add_comment(text:String):
+	var new_comment:Label = comment.instantiate()
+	new_comment.text = text
+	new_comment.set_anchors_preset(7)
+	new_comment.position.x = -(new_comment.size.x/2)
+	new_comment.position.y = -36 - new_comment.size.y
+	add_child(new_comment)

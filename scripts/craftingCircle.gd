@@ -24,7 +24,7 @@ func _ready():
 
 func _on_interact1():
 	if Globals.get("player").has_item(head_item):
-		print("You can only carry one extra head")
+		Globals.get("player").add_comment("You can only carry one extra head")
 		return
 	
 	if wood_count >= 0 && rock_count >= 3:
@@ -32,11 +32,11 @@ func _on_interact1():
 		wood_count -= 0
 		rock_count -= 3
 	else:
-		print("missing materials")
+		Globals.get("player").add_comment("missing materials")
 
 func _on_interact2():
 	if Globals.get("player").has_item(arms_item):
-		print("You can only carry one extra set of arms")
+		Globals.get("player").add_comment("You can only carry one extra set of arms")
 		return
 	
 	if wood_count >= 0 && rock_count >= 2:
@@ -44,11 +44,11 @@ func _on_interact2():
 		wood_count -= 0
 		rock_count -= 2
 	else:
-		print("missing materials")
+		Globals.get("player").add_comment("missing materials")
 
 func _on_interact3():
 	if Globals.get("player").has_item(body_item):
-		print("You can only carry one extra torso")
+		Globals.get("player").add_comment("You can only carry one extra torso")
 		return
 	
 	if wood_count >= 0 && rock_count >= 4:
@@ -56,11 +56,11 @@ func _on_interact3():
 		wood_count -= 0
 		rock_count -= 4
 	else:
-		print("missing materials")
+		Globals.get("player").add_comment("missing materials")
 
 func _on_interact4():
 	if Globals.get("player").has_item(legs_item):
-		print("You can only carry one extra set of legs")
+		Globals.get("player").add_comment("You can only carry one extra set of legs")
 		return
 	
 	if wood_count >= 0 && rock_count >= 2:
@@ -68,11 +68,11 @@ func _on_interact4():
 		wood_count -= 0
 		rock_count -= 2
 	else:
-		print("missing materials")
+		Globals.get("player").add_comment("missing materials")
 
 func _on_interact5():
 	if Globals.get("player").has_axe():
-		print("You can only have one axe")
+		Globals.get("player").add_comment("You can only have one axe")
 		return
 	
 	if wood_count >= 1 && rock_count >= 2:
@@ -80,11 +80,11 @@ func _on_interact5():
 		wood_count -= 1
 		rock_count -= 2
 	else:
-		print("missing materials")
+		Globals.get("player").add_comment("missing materials")
 
 func _on_interact6():
 	if Globals.get("player").has_pick():
-		print("You can only have one pick")
+		Globals.get("player").add_comment("You can only have one pick")
 		return
 	
 	if wood_count >= 1 && rock_count >= 2:
@@ -92,18 +92,18 @@ func _on_interact6():
 		wood_count -= 1
 		rock_count -= 2
 	else:
-		print("missing materials")
+		Globals.get("player").add_comment("missing materials")
 
 func _on_interact7():
 	if Globals.get("player").has_item(wood_item):
 		Globals.get("player").remove_item(wood_item)
 		wood_count += 1
 	else:
-		print("no wood added")
+		Globals.get("player").add_comment("no wood added")
 
 func _on_interact8():
 	if Globals.get("player").has_item(rock_item):
 		Globals.get("player").remove_item(rock_item)
 		rock_count += 1
 	else:
-		print("no rock added")
+		Globals.get("player").add_comment("no rock added")

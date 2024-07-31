@@ -26,7 +26,7 @@ func _add_fuel():
 		burn_time.start(burn_time.get_time_left() + fuel_time)
 		Globals.get("player").remove_item(accaptable_fuel)
 	else:
-		print("no fuel in inventory")
+		Globals.get("player").add_comment("no fuel in inventory")
 	print(burn_time.get_time_left())
 
 func _on_timer_timeout():
