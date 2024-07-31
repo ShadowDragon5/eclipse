@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://8pjmu4f4j7yv"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://8pjmu4f4j7yv"]
 
 [ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_48hhu"]
+[ext_resource type="Texture2D" uid="uid://nu7c5nbn8j1y" path="res://assets/sprites/player_body_parts/torso_icon.png" id="2_fo2qg"]
 
 [resource]
 script = ExtResource("1_48hhu")
 name = "body"
+texture = ExtResource("2_fo2qg")

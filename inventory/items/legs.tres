@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=2 format=3 uid="uid://dmxbexig6r7ci"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dmxbexig6r7ci"]
 
 [ext_resource type="Script" path="res://inventory/inventory_item.gd" id="1_t232t"]
+[ext_resource type="Texture2D" uid="uid://cwk3vinbow2qg" path="res://assets/sprites/player_body_parts/leg_icon.png" id="2_xuxmt"]
 
 [resource]
 script = ExtResource("1_t232t")
 name = "legs"
+texture = ExtResource("2_xuxmt")
