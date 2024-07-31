@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://vuv067umxkdi"
+path="res://.godot/imported/crafting_circle.aseprite-d3b5d5b156d47fffe924ad2da541e381.res"
+
+[deps]
+
+source_file="res://assets/aseprite/crafting_circle.aseprite"
+dest_files=["res://.godot/imported/crafting_circle.aseprite-d3b5d5b156d47fffe924ad2da541e381.res"]
+
+[params]
+
