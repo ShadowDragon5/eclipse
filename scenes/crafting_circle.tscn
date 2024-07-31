@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/craftingCircle.gd" id="1_jackj"]
 [ext_resource type="Resource" uid="uid://cwoctbqjen8yv" path="res://inventory/items/head.tres" id="2_0nc2k"]
 [ext_resource type="Resource" uid="uid://4nx5kd7k2www" path="res://inventory/items/wood.tres" id="2_q178v"]
-[ext_resource type="Texture2D" uid="uid://ckhfn3lthiwcg" path="res://icon.svg" id="2_rvqoc"]
 [ext_resource type="PackedScene" uid="uid://dnm3rhrapnk6r" path="res://interactioin/interaction area/interaction_area.tscn" id="3_1d7wr"]
 [ext_resource type="Resource" uid="uid://dawgtdh0hjqea" path="res://inventory/items/rock.tres" id="3_m6gqa"]
 [ext_resource type="Resource" uid="uid://cafko2wp2vxkc" path="res://inventory/items/arms.tres" id="3_wwrmf"]
 [ext_resource type="Resource" uid="uid://8pjmu4f4j7yv" path="res://inventory/items/body.tres" id="4_tln05"]
 [ext_resource type="Resource" uid="uid://dmxbexig6r7ci" path="res://inventory/items/legs.tres" id="5_cgmob"]
+[ext_resource type="Texture2D" uid="uid://dqmmcjjrt76kj" path="res://scenes/crafting_circle.png" id="8_4dvr8"]
 
 [node name="CraftingCircle" type="Node2D"]
 script = ExtResource("1_jackj")
@@ -20,8 +20,27 @@ wood_item = ExtResource("2_q178v")
 rock_item = ExtResource("3_m6gqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_rvqoc")
+z_index = -1
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("8_4dvr8")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/aseprite/crafting_circle.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"slice_section": false
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8a117396ad23ba3449b886968debdf69"
 
 [node name="InteractionAreaHead" parent="." instance=ExtResource("3_1d7wr")]
 action_name = "craft head"
