@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+@onready var head = %Head
+@onready var arms = %Arms
+@onready var torso = %Torso
+@onready var legs = %Legs
+
 @export var max_speed = 150
 @export var accel = 350
 @export var friction = 250
@@ -124,10 +129,17 @@ func get_input():
 	input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	return input.normalized()
 
+func play_animation(animation : String):
+	head.play(animation)
+	arms.play(animation)
+	torso.play(animation)
+	legs.play(animation)
+
 func player_movement(delta):
 	input = get_input()
 	
 	if input == Vector2.ZERO:
+		play_animation("idle")
 		if velocity.length()> (friction*delta):
 			velocity -= velocity.normalized()*(friction*delta)	#stopping or decelerating
 		else:
@@ -135,6 +147,17 @@ func player_movement(delta):
 	else:
 		velocity+=(input*accel*delta)	#speed up
 		velocity = velocity.limit_length(max_speed)	#limit speed
+		
+		if velocity.x > velocity.y:
+			if velocity.x > -velocity.y:
+				play_animation("right")
+			else:
+				play_animation("up")
+		else:
+			if velocity.x > -velocity.y:
+				play_animation("down")
+			else:
+				play_animation("left")
 	
 	move_and_slide()
 
